@@ -69,7 +69,8 @@
     "sort-by-id": true
   },
   "dwl/window#layout": {
-    "format": "[{layout}]"
+    "format": "[{layout}]",
+    "icon-spacing": 0
   },
   "dwl/window#title": {
     "format": "{title}"
