@@ -58,7 +58,10 @@ button:hover {
     color: @brblk;
 }
 
-#window-layout {
+#layout,
+#window-layout,
+#window-layout button,
+#window-layout label {
     padding: 0;
     margin: 0;
     min-width: 0;
