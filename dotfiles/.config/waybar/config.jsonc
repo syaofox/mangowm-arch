@@ -3,7 +3,7 @@
     "ext/workspaces",
     // "custom/sep",
     "dwl/window#layout",
-    "custom/sep",
+    // "custom/sep",
     "dwl/window#title"
   ],
   "modules-right": [
@@ -11,7 +11,7 @@
     // "battery",
     // "custom/sep",
     // "network",
-    "custom/sep",
+    // "custom/sep",
     "custom/net-speed",
     "custom/sep",
     "pulseaudio",
