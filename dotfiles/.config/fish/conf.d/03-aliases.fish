@@ -10,6 +10,8 @@ if status is-interactive
     alias port='sudo ss -tulnp | grep'
     alias bat-theme='bat --list-themes | fzf --preview="bat --theme={} --color=always ~/.config/themes/switch-theme.sh"'
     alias cat='bat'
+    alias vram='watch -n 1 nvidia-smi'
+    alias ram='watch -n 1 free -h'
 
 
     abbr -a v  nvim
