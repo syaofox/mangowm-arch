@@ -43,7 +43,7 @@ fi
 log_info "Installing AUR packages via yay..."
 AUR_PACKAGES=(    
     mangowm-git
-    sddm-theme-tokyo-night-git
+    sddm-silent-theme
 )
 if command -v yay >/dev/null; then
     yay -S --needed --noconfirm "${AUR_PACKAGES[@]}" || log_warn "Some AUR packages failed to install"
