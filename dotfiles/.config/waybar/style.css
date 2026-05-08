@@ -59,6 +59,7 @@ button:hover {
 }
 
 #window-layout {
+    color: @mag;
     padding: 0;
     margin: 0;
     min-width: 0;
