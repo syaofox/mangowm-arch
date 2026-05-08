@@ -70,7 +70,7 @@
   },
   "dwl/window#layout": {
     "format": "[{layout}]",
-    "icon-spacing": 0
+    "icon": false
   },
   "dwl/window#title": {
     "format": "{title}"
