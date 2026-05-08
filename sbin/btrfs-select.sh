@@ -311,8 +311,8 @@ run_btrfs_optimization() {
 # ============================================
 
 # ssd
-#UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/github btrfs noatime,compress=zstd:3,subvol=/@github 0 0
-#UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/data btrfs noatime,compress=zstd:3,subvol=/@data 0 0
+#UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/github btrfs noatime,compress=zstd:3,ssd,subvol=/@github 0 0
+#UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/data btrfs noatime,compress=zstd:3,ssd,subvol=/@data 0 0
 
 # nfs
 #10.10.10.2:/fs/1000/nfs /mnt/dnas nfs noauto,x-systemd.automount,_netdev,addr=10.10.10.2 0 0
