@@ -1,0 +1,39 @@
+# --- 基础布局 ---
+font=sans-serif 10
+width=350
+height=120
+margin=20
+padding=15
+border-size=2
+border-radius=8
+icons=1
+max-icon-size=48
+markup=1
+actions=1
+default-timeout=5000
+
+# --- TokyoNight 核心配色 ---
+# 背景：Storm Dark (#24283b)
+background-color=#24283b
+# 文本：银灰色 (#c0caf5)
+text-color=#c0caf5
+# 边框：蓝紫色 (#7aa2f7)
+border-color=#7aa2f7
+# 进度条：青色 (#7dcfff)
+progress-color=over #7dcfff
+
+# --- 不同等级的通知样式 ---
+
+[urgency=low]
+border-color=#414868
+default-timeout=3000
+
+[urgency=high]
+border-color=#f7768e
+text-color=#f7768e
+default-timeout=0
+
+# --- 分类规则 ---
+# 比如你可以让网易云或者 Spotify 的音乐通知显示不同的边框颜色
+[app-name=Spotify]
+border-color=#9ece6a

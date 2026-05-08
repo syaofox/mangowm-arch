@@ -1,0 +1,40 @@
+#!/bin/bash
+STATE_FILE="/tmp/net-speed-state"
+
+interface=$(ip route 2>/dev/null | grep default | awk '{print $5}' | head -1)
+[ -z "$interface" ] && interface=$(ls /sys/class/net 2>/dev/null | grep -v lo | head -1)
+[ -z "$interface" ] && echo "↓0B/s ↑0B/s" && exit 0
+
+rx=$(cat "/sys/class/net/$interface/statistics/rx_bytes" 2>/dev/null)
+tx=$(cat "/sys/class/net/$interface/statistics/tx_bytes" 2>/dev/null)
+[ -z "$rx" ] && echo "↓0B/s ↑0B/s" && exit 0
+
+now=$(date +%s)
+if [ -f "$STATE_FILE" ]; then
+    read -r old_rx old_tx old_time < "$STATE_FILE"
+    elapsed=$(( now - old_time ))
+    [ $elapsed -lt 1 ] && elapsed=1
+
+    rx_b=$(( (rx - old_rx) / elapsed ))
+    tx_b=$(( (tx - old_tx) / elapsed ))
+    [ $rx_b -lt 0 ] && rx_b=0
+    [ $tx_b -lt 0 ] && tx_b=0
+else
+    rx_b=0; tx_b=0
+fi
+
+echo "$rx $tx $now" > "$STATE_FILE"
+
+fmt_speed() {
+    local bytes=$1
+    [ $bytes -lt 1024 ] && bytes=0
+    if [ $bytes -ge 1048576 ]; then
+        awk "BEGIN{printf \"%.1fMB/s\", $bytes/1048576}"
+    elif [ $bytes -ge 1024 ]; then
+        awk "BEGIN{printf \"%.0fKB/s\", $bytes/1024}"
+    else
+        echo "0KB/s"
+    fi
+}
+
+echo "↓$(fmt_speed $rx_b) ↑$(fmt_speed $tx_b)"
