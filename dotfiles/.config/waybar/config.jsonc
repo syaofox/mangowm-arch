@@ -1,7 +1,7 @@
 {
   "modules-left": [
     "ext/workspaces",
-    // "custom/sep",
+    "custom/sep",
     "dwl/window#layout",
     "custom/sep",
     "dwl/window#title"
@@ -30,6 +30,7 @@
   },
   "dwl/window#layout": {
     "format": "[{layout}]",
+    "icon": true
   },
   "dwl/window#title": {
     "format": "{title}"
