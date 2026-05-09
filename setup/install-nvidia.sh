@@ -69,8 +69,18 @@ else
     sudo sed -i "s/^MODULES=(\(.*\))/MODULES=($NVIDIA_MODULES \1)/" "$MKINITCPIO_CONF"
     log_info "Added Nvidia modules to mkinitcpio.conf"
 fi
-log_info "Regenerating initramfs..."
-sudo mkinitcpio -P
+
+CMDLINE_ARGS="nvidia_drm.modeset=1 nvidia_drm.fbdev=1"
+
+# Handle UKI kernel cmdline (/etc/kernel/cmdline) — independent of bootloader
+if [ -f /etc/kernel/cmdline ]; then
+    if ! grep -q "nvidia_drm.modeset=1" /etc/kernel/cmdline; then
+        echo -n " $CMDLINE_ARGS" | sudo tee -a /etc/kernel/cmdline > /dev/null
+        log_info "Appended to /etc/kernel/cmdline"
+    else
+        log_info "nvidia_drm parameters already in /etc/kernel/cmdline"
+    fi
+fi
 
 # Add kernel parameters to GRUB (if GRUB is used)
 if command -v grub-mkconfig &>/dev/null && [ -f /boot/grub/grub.cfg ]; then
@@ -92,16 +102,6 @@ if command -v grub-mkconfig &>/dev/null && [ -f /boot/grub/grub.cfg ]; then
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 elif command -v bootctl &>/dev/null && [ -d /boot/loader ]; then
     log_info "systemd-boot detected, adding Nvidia kernel parameters..."
-    CMDLINE_ARGS="nvidia_drm.modeset=1 nvidia_drm.fbdev=1"
-    # Handle unified kernel image cmdline
-    if [ -f /etc/kernel/cmdline ]; then
-        if ! grep -q "nvidia_drm.modeset=1" /etc/kernel/cmdline; then
-            echo -n " $CMDLINE_ARGS" | sudo tee -a /etc/kernel/cmdline > /dev/null
-            log_info "Appended to /etc/kernel/cmdline"
-        else
-            log_info "nvidia_drm parameters already in /etc/kernel/cmdline"
-        fi
-    fi
     # Handle traditional loader entries
     for entry in /boot/loader/entries/*.conf; do
         [ -f "$entry" ] || continue
@@ -113,6 +113,9 @@ elif command -v bootctl &>/dev/null && [ -d /boot/loader ]; then
 else
     log_warn "No supported bootloader detected. Add 'nvidia_drm.modeset=1 nvidia_drm.fbdev=1' to your kernel parameters manually."
 fi
+
+log_info "Regenerating initramfs..."
+sudo mkinitcpio -P
 
 # Set Nvidia Wayland environment variables
 log_info "Setting Nvidia Wayland environment variables..."
