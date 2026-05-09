@@ -66,13 +66,13 @@
     "tooltip": false
   },
  
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": " {volume}%",
+"pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "  {volume}%",
     "format-icons": ["", "", ""],
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    "on-click": "~/.config/mango/volume.sh mute",
+    "on-scroll-up": "~/.config/mango/volume.sh up",
+    "on-scroll-down": "~/.config/mango/volume.sh down"
   },
 
   "custom/sep": {

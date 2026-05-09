@@ -10,12 +10,12 @@ case "$mode" in
     up)
         pactl set-sink-volume @DEFAULT_SINK@ +5%
         vol=$(get_volume)
-        notify-send -r 9988 -t 1000 "Volume ${vol}%"
+        notify-send -r 9988 -t 500 "Volume ${vol}%"
         ;;
     down)
         pactl set-sink-volume @DEFAULT_SINK@ -5%
         vol=$(get_volume)
-        notify-send -r 9988 -t 1000 "Volume ${vol}%"
+        notify-send -r 9988 -t 500 "Volume ${vol}%"
         ;;
     mute)
         pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -23,7 +23,7 @@ case "$mode" in
             notify-send -r 9988 -t 1000 "Muted"
         else
             vol=$(get_volume)
-            notify-send -r 9988 -t 1000 "Volume ${vol}%"
+            notify-send -r 9988 -t 500 "Volume ${vol}%"
         fi
         ;;
 esac
