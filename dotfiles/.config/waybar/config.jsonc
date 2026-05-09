@@ -7,27 +7,41 @@
     "dwl/window#title"
   ],
   "modules-right": [
-    // "custom/sep",
-    // "battery",
-    // "custom/sep",
-    // "network",
-    // "custom/sep",
     "custom/net-speed",
-    "custom/sep",
-    "pulseaudio",
     "custom/sep",
     "cpu",
     "temperature",
     "memory",
     "custom/sep",
-    // "disk",
-    // "custom/sep",
     "custom/gpu-stats",
+    "custom/sep",
+    "pulseaudio",
     "custom/sep",
     "clock",
     "custom/sep",
     "tray"
   ],
+
+  "ext/workspaces": {
+    "format": "{icon}",
+    "ignore-hidden": false,
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+    "sort-by-id": true
+  },
+  "dwl/window#layout": {
+    "format": "[{layout}]",
+  },
+  "dwl/window#title": {
+    "format": "{title}"
+  },
+
+  "custom/net-speed": {
+    "exec": "~/.local/bin/net-speed",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
 
   "clock": {
     "format": "{:%a %m-%d %H:%M}",
@@ -42,63 +56,25 @@
     "format": "{temperatureC}°C"
   },
   "memory": {
-    "format": "Mem {used}G"
+    "format": "MEM {used}G"
   },
-  // "disk": {
-  //   "interval": 60,
-  //   "path": "/",
-  //   "format": "Disk: {free}"
-  // },
-  // "battery": {
-  //   "states": {
-  //     "good": 95,
-  //     "warning": 30,
-  //     "critical": 15
-  //   },
-  //   "format": "Bat: {capacity}% {icon} {time}",
-  //   "format-plugged": "{capacity}% ",
-  //   "format-alt": "Bat {capacity}%",
-  //   "format-time": "{H}:{M}",
-  //   "format-icons": ["", "", "", "", ""]
-  // },
-  // "network": {
-  //   "format": "Online",
-  //   "format-disconnected": "Disconnected ⚠"
-  // },
-  "ext/workspaces": {
-    "format": "{icon}",
-    "ignore-hidden": false,
-    "on-click": "activate",
-    "on-click-right": "deactivate",
-    "sort-by-id": true
-  },
-  "dwl/window#layout": {
-    "format": "[{layout}]",
-  },
-  "dwl/window#title": {
-    "format": "{title}"
-  },
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": " {volume}%",
-    "format-icons": ["", "", ""],
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-  },
+
   "custom/gpu-stats": {
     "exec": "~/.local/bin/gpu-stats",
     "interval": 5,
     "format": "{}",
     "tooltip": false
   },
-
-  "custom/net-speed": {
-    "exec": "~/.local/bin/net-speed",
-    "interval": 1,
-    "format": "{}",
-    "tooltip": false
+ 
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " {volume}%",
+    "format-icons": ["", "", ""],
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
   },
+
   "custom/sep": {
     "format": "|",
     "interval": 0

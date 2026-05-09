@@ -1,11 +1,11 @@
 #!/bin/bash
 command -v nvidia-smi &>/dev/null || exit 0
 
+util=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null)
 temp=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits 2>/dev/null)
-freq=$(nvidia-smi --query-gpu=clocks.gr --format=csv,noheader,nounits 2>/dev/null)
 mem_used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits 2>/dev/null)
-mem_total=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits 2>/dev/null)
 
-[ -z "$temp" ] && exit 0
+[ -z "$util" ] && exit 0
 
-echo "🎮${temp}°C ${freq}MHz VRAM:${mem_used}MiB/${mem_total}MiB"
+mem_gb=$(awk "BEGIN {printf \"%.2f\", $mem_used/1024}")
+echo "GPU ${util}% ${temp}°C RAM ${mem_gb}G"

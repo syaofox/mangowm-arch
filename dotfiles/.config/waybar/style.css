@@ -42,13 +42,13 @@ button:hover {
     box-shadow: inset 0 -3px @white;
 }
 
+#custom-net-speed,
+#custom-gpu-stats,
+#pulseaudio,
 #clock,
 #custom-sep,
-#battery,
 #cpu,
 #memory,
-#disk,
-#network,
 #tray {
     padding: 0 8px;
     color: @white;
@@ -66,21 +66,17 @@ button:hover {
     color: @mag;
 }
 
-
-#clock {
-    color: @cyn;
+#custom-net-speed {
+    color: @fg;
 }
 
-#battery {
-    color: @blu;
+#cpu {
+    color: @grn;
 }
 
-#disk {
-    color: @ylw;
-}
 
 #temperature {
-    color: @ylw;
+    color: @grn;
 }
 
 #temperature.critical {
@@ -88,36 +84,26 @@ button:hover {
 }
 
 #memory {
-    color: @mag;
+    color: @grn;
 }
 
+#custom-gpu-stats {
+    color: @ylw;
+}
+
+
 #pulseaudio {
-    color: @cyn;
+    color: @blu;
 }
 
 #pulseaudio.muted {
     color: @red;
 }
 
-#custom-net-speed {
-    color: @blu;
+#clock {
+    color: @cyn;
 }
 
-#custom-gpu-stats {
-    color: @grn;
-}
-
-#cpu {
-    color: @grn;
-}
-
-#network {
-    color: @red;
-}
-
-#network.disconnected {
-    background-color: @red;
-}
 
 #tray {
     background-color: @mag;
