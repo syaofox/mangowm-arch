@@ -28,13 +28,7 @@ echo "$rx $tx $now" > "$STATE_FILE"
 fmt_speed() {
     local bytes=$1
     [ $bytes -lt 1024 ] && bytes=0
-    if [ $bytes -ge 1048576 ]; then
-        awk "BEGIN{printf \"%.1fMB/s\", $bytes/1048576}"
-    elif [ $bytes -ge 1024 ]; then
-        awk "BEGIN{printf \"%.0fKB/s\", $bytes/1024}"
-    else
-        echo "0KB/s"
-    fi
+    awk "BEGIN{printf \"%.2f\", $bytes/1048576}"
 }
 
-echo "↓$(fmt_speed $rx_b) ↑$(fmt_speed $tx_b)"
+echo "$(fmt_speed $rx_b)/$(fmt_speed $tx_b) MB/s"
