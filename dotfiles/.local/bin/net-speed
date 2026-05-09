@@ -31,4 +31,4 @@ fmt_speed() {
     awk "BEGIN{printf \"%.2f\", $bytes/1048576}"
 }
 
-echo "$(fmt_speed $rx_b)/$(fmt_speed $tx_b) MB/s"
+echo "$(fmt_speed $tx_b)/$(fmt_speed $rx_b) MB/s"
