@@ -34,17 +34,21 @@
     "format-alt": "{:%Y-%m-%d}"
   },
   "cpu": {
-    "format": "CPU: {usage}%",
+    "format": "CPU {usage}%",
     "tooltip": false
   },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C"
+  },
   "memory": {
-    "format": "Mem: {used}GiB"
+    "format": "Mem {used}G"
   },
-  "disk": {
-    "interval": 60,
-    "path": "/",
-    "format": "Disk: {free}"
-  },
+  // "disk": {
+  //   "interval": 60,
+  //   "path": "/",
+  //   "format": "Disk: {free}"
+  // },
   // "battery": {
   //   "states": {
   //     "good": 95,
@@ -57,10 +61,10 @@
   //   "format-time": "{H}:{M}",
   //   "format-icons": ["", "", "", "", ""]
   // },
-  "network": {
-    "format": "Online",
-    "format-disconnected": "Disconnected ⚠"
-  },
+  // "network": {
+  //   "format": "Online",
+  //   "format-disconnected": "Disconnected ⚠"
+  // },
   "ext/workspaces": {
     "format": "{icon}",
     "ignore-hidden": false,
@@ -88,10 +92,7 @@
     "format": "{}",
     "tooltip": false
   },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": "{temperatureC}°C"
-  },
+
   "custom/net-speed": {
     "exec": "~/.local/bin/net-speed",
     "interval": 1,
