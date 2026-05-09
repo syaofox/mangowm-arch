@@ -126,7 +126,7 @@ mako_conf = os.path.join(HOME, ".config/mako/config")
 replace_all(mako_conf, [
     (r"^background-color=.*", f"background-color={colors['SURFACE']}"),
     (r"^text-color=.*", f"text-color={colors['TEXT']}"),
-    (r"^border-color=.*", f"border-color={colors['BLUE']}"),
+    (r"^border-color=.*", f"border-color={colors['MAGENTA']}"),
     (r"^progress-color=.*", f"progress-color=over {colors['CYAN']}"),
 ])
 if os.path.isfile(mako_conf):
