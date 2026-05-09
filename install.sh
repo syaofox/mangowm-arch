@@ -67,8 +67,8 @@ run_step "Install Nemo files browser" "./setup/install-nemo.sh"
 run_step "Install fcitx5" "./setup/install-fcitx5.sh"
 run_step "Install fish shell" "./setup/install-fish.sh"
 
-# run_step "Install Docker" "./setup/install-docker.sh"
-# run_step "Install Nvidia drivers" "./setup/install-nvidia.sh"
+run_step "Install Docker" "./setup/install-docker.sh"
+run_step "Install Nvidia drivers" "./setup/install-nvidia.sh"
 
 run_step "Install FLathub" "./setup/install-flathub.sh"
 run_step "Deploy configuration files" "./setup/deploy-dotfiles.sh"

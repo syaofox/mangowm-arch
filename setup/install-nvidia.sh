@@ -17,7 +17,6 @@ NVIDIA_PACKAGES=(
     dkms
     libva-nvidia-driver
     nvidia-utils
-    nvidia-powerd
 )
 
 if ! sudo pacman -S --needed --noconfirm "${NVIDIA_PACKAGES[@]}"; then
