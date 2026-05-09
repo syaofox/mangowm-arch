@@ -17,6 +17,7 @@
     "custom/sep",
     "clock",
     "custom/sep",
+    "keyboard-state",
     "pulseaudio",
     "tray"
   ],
@@ -66,7 +67,17 @@
     "tooltip": false
   },
  
-"pulseaudio": {
+"keyboard-state": {
+    "numlock": true,
+    // "interval": 5,
+    "format": "{icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": " "
+    }
+  },
+
+  "pulseaudio": {
     "format": "{icon}",
     "format-muted": " ",
     "format-icons": ["", "", ""],
