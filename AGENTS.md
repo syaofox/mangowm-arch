@@ -19,3 +19,10 @@
 - Use the best model for the task - premium models for complex tasks (like coding) and mid-tier models for simpler tasks, like documentation
 - After completing features (large or small), always run commands like lint, type check and next build to check code quality
 
+## 相关文档
+
+- waybar: https://github.com/Alexays/Waybar/wiki
+- mangowm: https://github.com/mangowm/mango/wiki
+- archlinux: https://wiki.archlinux.org/title/Main_page
+
+\
