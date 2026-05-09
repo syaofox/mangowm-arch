@@ -92,20 +92,23 @@ button:hover {
 }
 
 
-#pulseaudio {
-    color: @blu;
-}
 
-#pulseaudio.muted {
-    color: @red;
-}
 
 #clock {
     color: @cyn;
 }
 
-
-#tray {
-    background-color: @mag;
+#pulseaudio {
+    font-size: 12px;
+    color: @white;
 }
+
+#pulseaudio.muted {
+    font-size: 12px;
+    color: @red;
+}
+
+/* #tray {
+    background-color: @mag;
+} */
 

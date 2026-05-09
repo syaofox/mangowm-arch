@@ -15,10 +15,9 @@
     "custom/sep",
     "custom/gpu-stats",
     "custom/sep",
-    "pulseaudio",
-    "custom/sep",
     "clock",
     "custom/sep",
+    "pulseaudio",
     "tray"
   ],
 
@@ -67,8 +66,8 @@
   },
  
 "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "  {volume}%",
+    "format": "{icon}",
+    "format-muted": " ",
     "format-icons": ["", "", ""],
     "on-click": "~/.config/mango/volume.sh mute",
     "on-scroll-up": "~/.config/mango/volume.sh up",
